@@ -1,0 +1,105 @@
+<div class="page">
+  <div class="images">
+    <img
+      alt="computer-image"
+      class="logo"
+      src="../../../../assets/images/logo.png"
+    />
+    <img
+      alt="computer-image"
+      class="Ellipse1"
+      src="../../../../assets/images/Ellipse 1.png"
+    />
+    <img
+      alt="computer-image"
+      class="Ellipse3"
+      src="../../../../assets/images/Ellipse 3.png"
+    />
+    <img
+      alt="computer-image"
+      class="panal"
+      src="../../../../assets/images/panal.png"
+    />
+  </div>
+
+  <div class="card">
+    <h3>Login</h3>
+    <span class="Line"></span>
+    <div class="textBox">
+      <span class="WelcomeMessage">Welcome to Jobzella! 👋🏻</span>
+      <span class="PleaseMessage"
+        >Please sign-in to your account and start the adventure</span
+      >
+      <form class="form" nz-form [formGroup]="form">
+        <nz-form-item>
+          <nz-form-control>
+            <nz-input-group [nzPrefix]="prefixTemplateMail">
+              <input
+                type="email"
+                nz-input
+                placeholder="Email"
+                [nzSize]="'large'"
+                [formControlName]="'email'"
+                maxlength="320"
+              />
+            </nz-input-group>
+            <ng-template #prefixTemplateMail
+              ><span nz-icon nzType="mail" nzTheme="outline"></span
+            ></ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <nz-input-group
+              [nzPrefix]="prefixTemplatePassword"
+              [nzSuffix]="suffixTemplateEye"
+            >
+              <input
+                type="{{ passwordToText }}"
+                nz-input
+                placeholder="Password"
+                [nzSize]="'large'"
+                [formControlName]="'password'"
+                minlength="8"
+                pattern="^(?=.*[A-Za-z])(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+              />
+            </nz-input-group>
+            <ng-template #prefixTemplatePassword
+              ><span nz-icon nzType="lock" nzTheme="outline"></span
+            ></ng-template>
+            <ng-template #suffixTemplateEye>
+              <span
+                nz-icon
+                style="font-size: 20px"
+                (click)="changePasswordVisibility()"
+                nzType="{{ visiblePassword ? 'eye' : 'eye-invisible' }}"
+              ></span>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <label nz-checkbox [formControlName]="'rememberMe'"
+              >Remember Me</label
+            >
+            <a class="forgetPassword" href="#" onClick="return false;"
+              >Forgot Password?</a
+            >
+          </nz-form-control>
+        </nz-form-item>
+        <button
+          nz-button
+          (click)="onSubmit()"
+          class="loginButton"
+          nzType="primary"
+          [nzLoading]="submitted"
+        >
+          Login
+        </button>
+        <div *ngIf="error" class="error text-danger">
+          {{ error }}
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

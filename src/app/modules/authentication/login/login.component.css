@@ -1,0 +1,168 @@
+.page {
+  min-height: 100%;
+  height: auto;
+  width: 100%;
+  background-color: #00587a;
+  display: flex;
+  gap: 757px;
+  margin: 0;
+}
+
+.Ellipse1 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.Ellipse3 {
+  position: absolute;
+  left: 422px;
+  top: 0px;
+}
+.logo {
+  position: absolute;
+  width: 189px;
+  height: 48px;
+  left: 44px;
+  top: 48px;
+}
+.panal {
+  position: absolute;
+  width: 571.01px;
+  height: 355px;
+  left: 69px;
+  top: 30%;
+}
+.card {
+  width: 463px;
+  height: auto;
+  background: #ffffff;
+  border-radius: 16px;
+  margin-top: 6%;
+  margin-bottom: 4%;
+}
+
+h3 {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  position: absolute;
+  width: 103px;
+  height: 48px;
+  left: 35px;
+  top: 66px;
+  color: #000000;
+}
+.Line {
+  position: absolute;
+  width: 107px;
+  height: 0px;
+  left: 31px;
+  top: 123px;
+  border: 1px solid #000000;
+}
+.textBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: absolute;
+  height: 260px;
+  left: 35px;
+  right: 34px;
+  top: calc(50% - 260px / 2 + 10px);
+}
+.WelcomeMessage {
+  width: 330px;
+  height: 38px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: rgba(76, 78, 100, 0.87);
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.PleaseMessage {
+  width: 394px;
+  height: 20px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(76, 78, 100, 0.68);
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+.form {
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+.ant-form-horizontal .ant-form-item-control {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.ant-input-affix-wrapper {
+  width: 394px;
+  height: 48px;
+  border: 1px solid rgba(76, 78, 100, 0.22);
+  border-radius: 8px;
+}
+.ant-form-item-control-input-content {
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+.ant-form-item {
+  margin: 0;
+}
+
+.anticon {
+  color: #abaeb0;
+}
+
+.forgetPassword {
+  position: absolute;
+  width: 254px;
+  left: calc(50% - 254px / 2 + 70px);
+  top: 13.79%;
+  bottom: 51.72%;
+
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+
+  text-align: right;
+  text-decoration-line: underline;
+
+  color: #5397c5;
+}
+
+.loginButton {
+  position: absolute;
+  left: 1%;
+  right: 3%;
+  top: 290px;
+  bottom: 124px;
+  width: 394px;
+  height: 48px;
+  background: #00587a;
+
+  box-shadow: 0px 4px 8px -4px rgba(76, 78, 100, 0.42);
+  border-radius: 10px;
+}
+.error {
+  margin-top: 90px;
+  text-align: center;
+}

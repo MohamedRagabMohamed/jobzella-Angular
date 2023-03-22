@@ -1,0 +1,412 @@
+.page {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+.sideMenu {
+  width: 287px;
+  height: 1395px;
+  min-height: 100%;
+  padding-top: 30px;
+  padding-left: 60px;
+  padding-right: 27px;
+  background: #f3f3f3;
+  border-radius: 0px 0px 0px 20px;
+}
+.main {
+  flex-grow: 1;
+}
+.topMenu {
+  height: 99px;
+  display: flex;
+  gap: 366px;
+  padding-left: 28px;
+  padding-top: 26px;
+  padding-bottom: 18px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(103, 103, 103, 0.08);
+}
+.left {
+  display: flex;
+  gap: 16px;
+}
+.right {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+.searchIcon {
+  margin-right: 38px;
+}
+.alarmIcon {
+  margin-right: 35px;
+}
+.avatarIcon {
+  display: flex;
+  gap: 16px;
+}
+.downClass {
+  height: 6px;
+  width: 9px;
+  margin-top: 18px;
+}
+.workArea {
+  height: 1296px;
+  background-color: #f5f5f5;
+}
+.top {
+  padding-top: 40px;
+  padding-left: 40px;
+  display: flex;
+  gap: 344px;
+}
+.groupsTitle {
+  margin-bottom: 8px;
+  margin-top: 49px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #373f51;
+  display: block;
+}
+.groupName {
+  width: 132px;
+  height: 24px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: #373f51;
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+}
+.nameContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12px 20px 12px 8px;
+  gap: 14px;
+
+  width: 200px;
+  height: 48px;
+
+  background: rgba(0, 88, 122, 0.05);
+  border-radius: 8px;
+}
+
+.groupTasksContiner {
+  display: flex;
+  gap: 14px;
+  padding-left: 40px;
+  padding-top: 25px;
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.status-container {
+  width: 30%;
+  height: auto;
+  min-height: 200px;
+  display: inline-flex;
+  overflow: visible;
+}
+.status-list {
+  border: none;
+  min-height: 60px;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.status-box {
+  border: solid 1px #ccc;
+  box-sizing: border-box;
+  background: white;
+  font-size: 14px;
+  width: 250px;
+  min-height: 180px;
+  height: fit-content;
+  background: #f9f9f9;
+  border-radius: 8.53774px;
+  margin: 0px 17px 8px 17px;
+}
+.groupTasksContiner:active {
+  cursor: move;
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+.DNDTitle {
+  display: flex;
+  margin-left: 18px;
+  margin-top: 23px;
+}
+.Ellipse11 {
+  height: 6.37px;
+  width: 6.37px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 7px;
+  margin-top: 5px;
+}
+
+.statustitle {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12.748px;
+  line-height: 19px;
+  margin-right: 8px;
+}
+
+.numberOfTaskes {
+  box-sizing: border-box;
+  width: 15.94px;
+  height: 15.94px;
+  background: #e0e0e0;
+  border-radius: 7.96751px;
+  text-align: center;
+}
+
+.startusBar {
+  width: 250px;
+  height: 0px;
+  border: 2px solid transparent;
+  margin-left: 17px;
+  margin-top: 16px;
+  margin-bottom: 28px;
+  display: inline-block;
+}
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.status-box:last-child {
+  border: none;
+}
+
+.status-list.cdk-drop-list-dragging .status-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.taskTopBox {
+  display: flex;
+  justify-content: space-between;
+}
+.taskTitle {
+  height: 21px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: #0d062d;
+  display: block;
+  margin-left: 12px;
+  margin-top: 15px;
+}
+.taskDescription {
+  display: block;
+  margin-top: 3px;
+  margin-left: 12px;
+  margin-right: 10px;
+  line-break: anywhere;
+}
+.taskDate {
+  width: 55px;
+  height: 20px;
+  background: rgba(90, 195, 221, 0.2);
+  border-radius: 4px;
+  margin-left: 12px;
+  margin-top: 11px;
+  display: flex;
+  gap: 3px;
+}
+
+.taskPeopleFiles {
+  display: flex;
+  gap: 133px;
+  margin-top: 11px;
+  margin-left: 12px;
+}
+
+.files {
+  display: flex;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 15px;
+  color: #787486;
+  margin-top: 8px;
+}
+
+.addButton {
+  width: 200px;
+  height: 44px;
+  margin-right: 86px;
+  background: #00587a;
+  border-radius: 16px;
+}
+
+.emoje {
+  width: 51px;
+  height: 55px;
+  background: url("../../../../assets/images/F2.png");
+}
+.helloText {
+  width: 291px;
+  height: 32px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #23262f;
+}
+.letsText {
+  width: 173px;
+  height: 20px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #828282;
+}
+
+.taskStatusBar {
+  width: 221px;
+  height: 6px;
+  border-radius: 10px;
+  margin-top: 19px;
+  margin-left: 12px;
+  margin-bottom: 11px;
+}
+
+.progressBar {
+  width: 140px;
+  height: 6px;
+  background: #ffa500;
+  border-radius: 10px;
+  margin-bottom: 11px;
+}
+
+.doneBar {
+  width: 221px;
+  height: 6px;
+  background: #8bc48a;
+  border-radius: 10px;
+  margin-top: 19px;
+  margin-left: 12px;
+  margin-bottom: 11px;
+}
+.taskMeter {
+  display: flex;
+  gap: 9px;
+}
+.textTaskMeter {
+  width: 63px;
+  height: 14px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11.9528px;
+  line-height: 14px;
+  color: #323338;
+  margin-top: 3px;
+}
+.bar {
+  width: 310 !important;
+  display: inline-block;
+}
+
+.totalProgressBar {
+  display: flex;
+}
+
+::ng-deep.ant-progress-inner {
+  background-color: #dbeef5;
+}
+
+.addButtonInsideBox {
+  box-sizing: border-box;
+  width: 247px;
+  height: 52px;
+  background: #ffffff;
+  border: 1px dashed rgba(0, 88, 122, 0.3);
+  border-radius: 8px;
+  margin-left: 22px;
+  margin-right: 12px;
+  margin-bottom: 25px;
+  color: #00587a;
+}
+
+.todoColor {
+  border-color: #973fcf;
+  background-color: #973fcf;
+}
+.todoBarBackground {
+  background: #eadbf4;
+}
+.progressColor {
+  border-color: #ffa500;
+  background-color: #ffa500;
+}
+.progressBarBackground {
+  background: #fceaca;
+}
+.doneColor {
+  border-color: #68b266;
+  background-color: #68b266;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.goldenColor {
+  color: #ffa800;
+}
+.svg-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.activeGroup {
+  background: rgba(0, 88, 122, 0.05);
+  border-radius: 8px;
+  width: 200px;
+  height: 48px;
+}
+
+.ant-list-item {
+  cursor: pointer;
+}
+.ant-list-item {
+  cursor: pointer;
+}
+.ant-list-item:active {
+  transform: rotate(0deg) scale(1) skew(0deg) translate(1px);
+}

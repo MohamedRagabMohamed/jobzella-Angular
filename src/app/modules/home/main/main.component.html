@@ -1,0 +1,363 @@
+<div class="page">
+  <div class="sideMenu">
+    <img alt="Color Logo" src="../../../../assets/images/logo-color.png" />
+    <span class="groupsTitle">Groubs</span>
+    <nz-list nzItemLayout="horizontal">
+      <div *ngFor="let item of groupList">
+        <nz-list-item
+          class="{{ item.groupClass }}"
+          (click)="getCurrentGroupTasks(item.id!)"
+        >
+          <nz-list-item-meta [nzAvatar]="item.image!">
+            <nz-list-item-meta-title>
+              {{ item.name }}
+            </nz-list-item-meta-title>
+          </nz-list-item-meta>
+        </nz-list-item>
+      </div>
+    </nz-list>
+    <button
+      nz-button
+      class="addButton mt-30"
+      nzType="primary"
+      (click)="showModelAddGroup()"
+    >
+      <span nz-icon nzType="plus-circle" nzTheme="outline"></span>Add Group
+    </button>
+  </div>
+  <div class="main">
+    <div class="topMenu">
+      <div class="left">
+        <div class="emoje"></div>
+        <div class="text">
+          <div class="helloText">{{ "Hello, Ahmed Muhammed" }}</div>
+          <div class="letsText">{{ "Let’s start your tasks NOW!" }}</div>
+        </div>
+      </div>
+      <div class="right">
+        <span class="searchIcon" nz-icon>
+          <svg
+            class="svg-icon"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M228.13 485.33c0 153.81 121.57 278.85 270.79 278.85S769.7 639.14 769.7 485.33 648.13 206.49 498.91 206.49c-149.22 0-270.78 125.04-270.78 278.84z m631.41 343.39c14.38 14.81 14.36 38.66 0 53.43-6.97 7.22-16.5 11.29-26.46 11.29s-19.49-4.07-26.43-11.27L700.36 772.84c-58.43 43.4-128.25 67.26-201.44 67.26-190.44 0-345.24-159.22-345.24-354.77s154.79-354.77 345.23-354.77 345.24 159.22 345.24 354.77c0 88.42-31.96 171.84-88.49 236.54l103.88 106.85z"
+              fill="#000000"
+            />
+          </svg>
+        </span>
+        <span class="alarmIcon" nz-icon>
+          <svg
+            class="svg-icon"
+            viewBox="0 0 1024 1024"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M860.16 773.1712A228.6592 228.6592 0 0 1 768 588.8v-153.6a282.112 282.112 0 0 0-204.8-270.9504V128c0-42.3424-34.4576-76.8-76.8-76.8S409.6 85.6576 409.6 128v36.2496A282.112 282.112 0 0 0 204.8 435.2v153.6a228.7616 228.7616 0 0 1-92.16 184.3712 25.6 25.6 0 0 0 15.36 46.08h232.96a128.1536 128.1536 0 0 0 125.3888 153.6 128.1536 128.1536 0 0 0 125.44-153.6h232.96a25.6 25.6 0 0 0 15.36-46.08zM460.8 128a25.6 25.6 0 0 1 51.2 0v26.7776a282.0096 282.0096 0 0 0-51.2 0V128z m102.4 716.8c0 42.3424-34.4576 76.8-76.8 76.8a76.9024 76.9024 0 0 1-72.3968-102.4h144.7936c2.8672 8.192 4.4032 16.8448 4.4032 25.6zM191.5904 768c13.056-15.8208 24.4224-33.0752 33.7408-51.2512A278.272 278.272 0 0 0 256 588.8v-153.6C256 308.1728 359.3728 204.8 486.4 204.8S716.8 308.1728 716.8 435.2v153.6a278.9376 278.9376 0 0 0 64.4096 179.2H191.5392z"
+              fill="#000000"
+            />
+          </svg>
+        </span>
+        <div class="avatarIcon">
+          <nz-avatar
+            [nzSize]="48"
+            nzIcon="user"
+            nzSrc="{{ image }}"
+          ></nz-avatar>
+          <span
+            class="downClass"
+            nz-icon
+            nzType="down"
+            nzTheme="outline"
+            (click)="logout()"
+          ></span>
+        </div>
+      </div>
+    </div>
+    <nz-spin [nzSpinning]="loading">
+      <div class="workArea">
+        <div class="top">
+          <div class="bar w-100">
+            <div class="taskMeter">
+              <div class="textTaskMeter">{{ "Task Meter" }}</div>
+              <div class="numberTaskMeter">
+                <span class="text-primary">{{ doneList.length }}</span
+                >/{{ numberOfAllTasks }}
+              </div>
+            </div>
+            <div class="totalProgressBar row">
+              <div class="col">
+                <nz-progress
+                  [nzWidth]="80"
+                  [nzPercent]="(doneList.length * 100) / numberOfAllTasks"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="{ '0%': '#00587A', '100%': '#00587A' }"
+                  [nzStrokeLinecap]="'square'"
+                ></nz-progress>
+              </div>
+              <span class="col goldenColor"
+                ><span nz-icon class="me-2" nzType="star" nzTheme="fill"></span
+                >Good Job!</span
+              >
+            </div>
+          </div>
+          <div class="addButton">
+            <button
+              nz-button
+              class="addButton"
+              nzType="primary"
+              (click)="showModelAddTask(-1)"
+            >
+              <span nz-icon nzType="plus-circle" nzTheme="outline"></span>Add
+              task
+            </button>
+          </div>
+        </div>
+        <div class="groupTasksContiner">
+          <div class="status-container">
+            <div
+              cdkDropList
+              #todoDragList="cdkDropList"
+              [cdkDropListData]="todoList"
+              [cdkDropListConnectedTo]="[doneDragList, onProgressDragList]"
+              class="status-list"
+              (cdkDropListDropped)="drop($event)"
+            >
+              <span class="DNDTitle">
+                <span class="Ellipse11 todoColor"> </span>
+                <span class="statustitle"> To do </span>
+                <span class="numberOfTaskes">{{ todoList.length }}</span>
+              </span>
+              <span class="startusBar todoColor"></span>
+              <div class="status-box" *ngFor="let item of todoList" cdkDrag>
+                <div class="taskTopBox">
+                  <span class="taskTitle">{{ item.name }}</span>
+                  <span
+                    class="mt-4 me-3 text-dark"
+                    nz-icon
+                    nzType="ellipsis"
+                    nzTheme="outline"
+                  ></span>
+                </div>
+                <span class="taskDescription">{{ item.description }}</span>
+                <span class="taskDate"
+                  ><span
+                    class="mt-1"
+                    nz-icon
+                    nzType="clock-circle"
+                    nzTheme="outline"
+                  ></span
+                  >{{ "5 May" }}</span
+                >
+                <div class="taskPeopleFiles">
+                  <div class="people">
+                    <nz-avatar-group>
+                      <nz-avatar
+                        [nzSize]="19"
+                        nzIcon="user"
+                        nzSrc="{{ image }}"
+                      ></nz-avatar>
+                      <nz-avatar
+                        [nzSize]="19"
+                        nzIcon="user"
+                        nzSrc="{{ image }}"
+                      ></nz-avatar>
+                      <nz-avatar
+                        [nzSize]="19"
+                        nzIcon="user"
+                        nzSrc="{{ image }}"
+                      ></nz-avatar>
+                    </nz-avatar-group>
+                  </div>
+                  <div class="files">
+                    <span
+                      class="mt-1 me-1"
+                      nz-icon
+                      nzType="folder-open"
+                      nzTheme="outline"
+                    ></span>
+                    {{ "0" }}
+                    files
+                  </div>
+                </div>
+                <div class="taskStatusBar todoBarBackground"></div>
+              </div>
+              <button
+                nz-button
+                class="addButtonInsideBox"
+                nzType="primary"
+                (click)="showModelAddTask(1)"
+              >
+                <span nz-icon nzType="plus-circle" nzTheme="outline"></span>
+              </button>
+            </div>
+          </div>
+          <div class="status-container">
+            <div
+              cdkDropList
+              #onProgressDragList="cdkDropList"
+              [cdkDropListData]="onProgressList"
+              [cdkDropListConnectedTo]="[doneDragList, todoDragList]"
+              class="status-list"
+              (cdkDropListDropped)="drop($event)"
+            >
+              <span class="DNDTitle">
+                <span class="Ellipse11 progressColor"> </span>
+                <span class="statustitle"> On Progress </span>
+                <span class="numberOfTaskes">{{ onProgressList.length }}</span>
+              </span>
+              <span class="startusBar progressColor"></span>
+              <div
+                class="status-box"
+                *ngFor="let item of onProgressList"
+                cdkDrag
+              >
+                <div class="taskTopBox">
+                  <span class="taskTitle">{{ item.name }}</span>
+                  <span
+                    class="mt-4 me-3 text-dark"
+                    nz-icon
+                    nzType="ellipsis"
+                    nzTheme="outline"
+                  ></span>
+                </div>
+                <span class="taskDescription">{{ item.description }}</span>
+                <span class="taskDate"
+                  ><span
+                    class="mt-1"
+                    nz-icon
+                    nzType="clock-circle"
+                    nzTheme="outline"
+                  ></span
+                  >{{ "5 May" }}</span
+                >
+                <div class="taskPeopleFiles">
+                  <div class="people">
+                    <nz-avatar-group>
+                      <nz-avatar
+                        [nzSize]="19"
+                        nzIcon="user"
+                        nzSrc="{{ image }}"
+                      ></nz-avatar>
+                      <nz-avatar
+                        [nzSize]="19"
+                        nzIcon="user"
+                        nzSrc="{{ image }}"
+                      ></nz-avatar>
+                      <nz-avatar
+                        [nzSize]="19"
+                        nzIcon="user"
+                        nzSrc="{{ image }}"
+                      ></nz-avatar>
+                    </nz-avatar-group>
+                  </div>
+                  <div class="files">
+                    <span
+                      class="mt-1 me-1"
+                      nz-icon
+                      nzType="folder-open"
+                      nzTheme="outline"
+                    ></span>
+                    {{ "0" }}
+                    files
+                  </div>
+                </div>
+                <div class="taskStatusBar progressBarBackground">
+                  <div class="progressBar"></div>
+                </div>
+              </div>
+              <button
+                nz-button
+                class="addButtonInsideBox"
+                nzType="primary"
+                (click)="showModelAddTask(2)"
+              >
+                <span nz-icon nzType="plus-circle" nzTheme="outline"></span>
+              </button>
+            </div>
+          </div>
+          <div class="status-container">
+            <div
+              cdkDropList
+              #doneDragList="cdkDropList"
+              [cdkDropListData]="doneList"
+              [cdkDropListConnectedTo]="[todoDragList, onProgressDragList]"
+              class="status-list"
+              (cdkDropListDropped)="drop($event)"
+            >
+              <span class="DNDTitle">
+                <span class="Ellipse11 doneColor"> </span>
+                <span class="statustitle"> Done </span>
+                <span class="numberOfTaskes">{{ doneList.length }}</span>
+              </span>
+              <span class="startusBar doneColor"></span>
+              <div class="status-box" *ngFor="let item of doneList" cdkDrag>
+                <div class="taskTopBox">
+                  <span class="taskTitle">{{ item.name }}</span>
+                  <span
+                    class="mt-4 me-3 text-dark"
+                    nz-icon
+                    nzType="ellipsis"
+                    nzTheme="outline"
+                  ></span>
+                </div>
+                <span class="taskDescription">{{ item.description }}</span>
+                <span class="taskDate"
+                  ><span
+                    class="mt-1"
+                    nz-icon
+                    nzType="clock-circle"
+                    nzTheme="outline"
+                  ></span
+                  >{{ "5 May" }}</span
+                >
+                <div class="taskPeopleFiles">
+                  <div class="people">
+                    <nz-avatar-group>
+                      <nz-avatar
+                        [nzSize]="19"
+                        nzIcon="user"
+                        nzSrc="{{ image }}"
+                      ></nz-avatar>
+                      <nz-avatar
+                        [nzSize]="19"
+                        nzIcon="user"
+                        nzSrc="{{ image }}"
+                      ></nz-avatar>
+                      <nz-avatar
+                        [nzSize]="19"
+                        nzIcon="user"
+                        nzSrc="{{ image }}"
+                      ></nz-avatar>
+                    </nz-avatar-group>
+                  </div>
+                  <div class="files">
+                    <span
+                      class="mt-1 me-1"
+                      nz-icon
+                      nzType="folder-open"
+                      nzTheme="outline"
+                    ></span>
+                    {{ "0" }}
+                    files
+                  </div>
+                </div>
+                <div class="doneBar"></div>
+              </div>
+              <button
+                nz-button
+                class="addButtonInsideBox"
+                nzType="primary"
+                (click)="showModelAddTask(3)"
+              >
+                <span nz-icon nzType="plus-circle" nzTheme="outline"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nz-spin>
+  </div>
+</div>

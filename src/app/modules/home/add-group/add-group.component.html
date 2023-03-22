@@ -1,0 +1,23 @@
+<form class="form" nz-form [formGroup]="form">
+  <nz-form-item>
+    <label for="name">Name<strong class="text-danger">*</strong></label>
+    <input
+      type="text"
+      placeholder="Jobzella"
+      [formControlName]="'name'"
+      id="name"
+      maxlength="150"
+      minlength="3"
+    />
+  </nz-form-item>
+  <button
+    nz-button
+    class="addButton"
+    nzType="primary"
+    [disabled]="form.invalid"
+    (click)="onSubmit()"
+    [nzLoading]="submitted"
+  >
+    <span nz-icon nzType="plus-circle" nzTheme="outline"></span>Add Group
+  </button>
+</form>

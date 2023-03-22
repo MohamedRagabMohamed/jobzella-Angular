@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+.ant-modal-header {
+  width: 569px;
+  height: 65px;
+  background: rgba(0, 88, 122, 0.2);
+  border-radius: 8px;
+}
+.ant-modal-content {
+  border-radius: 8px;
+}
+.ant-modal-footer {
+  display: none;
+}

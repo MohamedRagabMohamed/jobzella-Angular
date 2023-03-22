@@ -1,0 +1,50 @@
+<form class="form" nz-form [formGroup]="form">
+  <nz-form-item>
+    <label for="name">Name<strong class="text-danger">*</strong></label>
+    <input
+      type="text"
+      placeholder="Jobzella"
+      [formControlName]="'name'"
+      id="name"
+      maxlength="100"
+      minlength="3"
+    />
+  </nz-form-item>
+  <nz-form-item>
+    <label for="description"
+      >Describtion<strong class="text-danger">*</strong></label
+    >
+    <input
+      type="text"
+      placeholder="Write here...."
+      [formControlName]="'description'"
+      id="description"
+      class="textarea"
+      maxlength="500"
+      minlength="3"
+    />
+  </nz-form-item>
+  <nz-form-item class="d-flex flex-column">
+    <label for="status"
+      >Choose status <strong class="text-danger">*</strong></label
+    >
+    <nz-radio-group
+      class="d-flex flex-row mt-1 gabItem"
+      [formControlName]="'status'"
+    >
+      <label class="radioLabel" nz-radio nzValue="1">To do</label>
+      <label class="radioLabel" nz-radio nzValue="2">In progress</label>
+      <label class="radioLabel" nz-radio nzValue="3">Done</label>
+    </nz-radio-group>
+  </nz-form-item>
+  <button
+    nz-button
+    class="addButton"
+    nzType="primary"
+    [disabled]="form.invalid"
+    (click)="onSubmit()"
+    [nzLoading]="submitted"
+  >
+    <span nz-icon nzType="plus-circle" nzTheme="outline"></span>Add task
+  </button>
+</form>
